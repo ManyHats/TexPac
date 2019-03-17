@@ -25,6 +25,7 @@ namespace TexPack
         private void ImageList_Drop(object sender, DragEventArgs e)
         {
             var data = e.Data.GetData(DataFormats.FileDrop) as string[];
+            spriteLabel.Opacity = 0;
 
             for (int i = 0; i < data.Length; i++)
             {

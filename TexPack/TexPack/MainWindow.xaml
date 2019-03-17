@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TexPack"
         mc:Ignorable="d"
-        Title="TexPack" Height="298.307" Width="142.976" Cursor="Hand" ResizeMode="NoResize" Background="{x:Null}">
+        Title="TexPac" Height="298.307" Width="142.976" Cursor="Hand" ResizeMode="NoResize" Background="{x:Null}">
     <Grid Background="LightBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="imageList" Height="228" Margin="10,0,10,35" VerticalAlignment="Bottom" Drop="ImageList_Drop" DragOver="ImageList_DragOver" AllowDrop="True" Background="#FF87AEBB" Foreground="White"/>
+        <ListBox x:Name="imageList" Margin="10,6,10,35" Drop="ImageList_Drop" DragOver="ImageList_DragOver" AllowDrop="True" Background="#FF87AEBB" Foreground="White">
+        </ListBox>
         <Button x:Name="ExportImage" Content="Export" Margin="77,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ExportImage_Click"/>
         <TextBox HorizontalAlignment="Left" Height="20" Margin="10,0,0,10" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="50"/>
+        <TextBlock x:Name="spriteLabel" Margin="10,96,10,108" TextWrapping="Wrap" Text="Drag Sprites Here" Opacity="0.25" FontSize="18" IsHitTestVisible="False" TextAlignment="Center" RenderTransformOrigin="0.493,0.545"/>
     </Grid>
 </Window>
