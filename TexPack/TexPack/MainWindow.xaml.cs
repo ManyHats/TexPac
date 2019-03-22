@@ -61,21 +61,26 @@ namespace TexPack
         {
             int exportWidth = 0;
             int exportHeight = 0;
+            int padding = int.Parse(paddingBox.Text);
 
             // Calculate export image height and width
-            foreach(System.Drawing.Image img in images)
+            foreach (System.Drawing.Image img in images)
             {
                 exportWidth += img.Width;
                 exportHeight = img.Height;
             }
 
-            Bitmap exportImage = new Bitmap(exportWidth, exportHeight);
+            Bitmap exportImage = new Bitmap(exportWidth + (images.Count * padding), exportHeight);
 
             using (Graphics graphics = Graphics.FromImage(exportImage))
             {
-                for(int i = 0; i < images.Count; i++)
+                int x = 0;
+
+                for (int i = 0; i < images.Count; i++)
                 {
-                    graphics.DrawImage(images[i], new Rectangle(i * images[i].Width, 0, images[i].Width, images[i].Height));
+                    graphics.DrawImage(images[i], new Rectangle(x, 0, images[i].Width, images[i].Height));
+                    x += padding;
+                    x += images[i].Width;
                 }
             }
 
@@ -85,6 +90,12 @@ namespace TexPack
                 exportImage.Save(dialog.FileName, ImageFormat.Png);
                 exportImage.Dispose();
             }
+        }
+
+        private void clear_Click(object sender, RoutedEventArgs e)
+        {
+            images.Clear();
+            imageList.Items.Clear();
         }
     }
 }
