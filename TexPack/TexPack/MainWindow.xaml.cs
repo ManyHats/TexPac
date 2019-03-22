@@ -96,6 +96,7 @@ namespace TexPack
         {
             images.Clear();
             imageList.Items.Clear();
+            spriteLabel.Opacity = 30;
         }
     }
 }
